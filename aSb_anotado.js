@@ -16,9 +16,9 @@ var aSb = (function() {
             4: "a",
             5: "b"
         },
-        productions_: [0, 
-            [3, 0], // S -> /* vacio */    [símbolo, longitud] 
-            [3, 3]  // S -> aSb longitud 3 [símbolo, longitud]
+        productions_: [0, // reservado para  S'-> S $accept ?
+            [3, 0], // S -> /* vacio */    [símbolo, longitud]  sub1: primera prod
+            [3, 3]  // S -> aSb longitud 3 [símbolo, longitud]  sub2: 2ª, etc.
         ],
         performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate, $$, _$) {
 
@@ -26,12 +26,12 @@ var aSb = (function() {
             switch (yystate) {}
         },
         table: [{
-            1: [2, 1],
-            3: 1,
-            4: [1, 2]
-        }, {
-            1: [3]
-        }, {
+              1: [2, 1],
+              3: 1,
+              4: [1, 2]
+            }, {
+              1: [3]
+            }, {
             3: 3,
             4: [1, 2],
             5: [2, 1]
