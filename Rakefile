@@ -19,8 +19,8 @@ end
 
 desc "Generates out.pdf containing the listings"
 task :print do
-  #sh "a2ps --columns=1 -f 8 -R *.js *.html -o out.ps"
-  sh "a2ps --columns=1 -f 8 -R aSb_anotado.js -o out.ps"
+  sh "a2ps --columns=1 -f 8 -R aSb.js  -o out.ps"
+  #sh "a2ps --columns=1 -f 8 -R aSb_anotado.js -o out.ps"
   sh "ps2pdf out.ps out.pdf"
 end
 
