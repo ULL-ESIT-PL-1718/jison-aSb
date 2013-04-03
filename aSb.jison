@@ -8,6 +8,9 @@ P : S { return $1; }
 ;
 
 S: /* empty */  { $$ = ''; console.log("empty"); }
-   | 'a' { $$ = "intermediate"; } S 'b'  { $$ = $1 + $2 + $3 + $4; console.log("S -> aSb"); }
+   | 'a' T  S 'b'  { $$ = $1 + $2 + $3 + $4; console.log("S -> aSb"); }
+;
+
+T: /* empty */ { $$ = " intermediate "; }
 ;
 %%
