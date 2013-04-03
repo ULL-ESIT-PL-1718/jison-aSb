@@ -4,7 +4,10 @@
 .               { return yytext; }
 /lex
 %%
+P : S { return $1; }
+;
+
 S: /* empty */  { $$ = ''; console.log("empty"); }
-   | 'a' S 'b'  { $$ = $1 + $2 + $3; console.log("S -> aSb"); }
+   | 'a' { $$ = "intermediate"; } S 'b'  { $$ = $1 + $2 + $3 + $4; console.log("S -> aSb"); }
 ;
 %%
