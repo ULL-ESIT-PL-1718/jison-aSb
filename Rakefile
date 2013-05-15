@@ -38,3 +38,8 @@ end
 task :clean do
   sh 'rm -f out.pdf out.ps out.ps~ aSb_ugly.js'
 end
+
+desc "run the example"
+task :run do
+  sh 'node use_aSb.js'
+end
