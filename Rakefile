@@ -14,7 +14,7 @@ task :default => %w{aSb_ugly.js} do
 end
 
 file "aSb_ugly.js" => %w{aSb.jison} do
-  sh "jison aSb.jison -o aSb.js"
+  sh "jison aSb.jison aSb.l -o aSb.js"
 end
 
 desc "compile the grammar aSb_ugly.jison with -t option"
