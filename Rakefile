@@ -7,25 +7,15 @@
 bin = `npm bin`.chomp
 
 desc "compile the grammar aSb_ugly.jison"
-task :default => %w{aSb_ugly.js} do
-  sh "mv aSb.js aSb_ugly.js"
-  sh "#{bin}/beautifier aSb_ugly.js > aSb.js"
-  sh "rm -f aSb_ugly.js"
-end
+task :default => %w{aSb.js} 
 
-file "aSb_ugly.js" => %w{aSb.jison} do
+file "aSb.js" => %w{aSb.jison} do
   sh "jison aSb.jison aSb.l -o aSb.js"
 end
 
-desc "compile the grammar aSb_ugly.jison with -t option"
-task :trace => %w{taSb_ugly.js} do
-  sh "#{bin}/beautifier taSb_ugly.js > aSb.js"
-  sh "rm -f taSb_ugly.js"
-end
-
-file "taSb_ugly.js" => %w{aSb.jison} do
+file "taSb.js" => %w{aSb.jison} do
   sh "jison aSb.jison --debug 64"
-  sh "mv aSb.js taSb_ugly.js"
+  sh "mv aSb.js taSb.js"
 end
 
 desc "Generates out.pdf containing the listings"
@@ -36,7 +26,7 @@ task :print do
 end
 
 task :clean do
-  sh 'rm -f out.pdf out.ps out.ps~ aSb_ugly.js'
+  sh 'rm -f out.pdf out.ps out.ps~ aSb.js'
 end
 
 desc "run the example"
