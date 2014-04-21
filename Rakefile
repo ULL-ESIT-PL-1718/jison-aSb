@@ -34,3 +34,7 @@ desc "run the example"
 task :run do
   sh 'node use_aSb.js'
 end
+
+task :open do
+  sh "open https://github.com/crguezl/jison-aSb"
+end
