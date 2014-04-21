@@ -6,16 +6,16 @@
 
 bin = `npm bin`.chomp
 
-desc "compile the grammar aSb_ugly.jison"
-task :default => %w{aSb.js} 
+task :default => :compile
 
-file "aSb.js" => %w{aSb.jison} do
+desc "compile the grammar aSb.jison"
+task :compile => %w{aSb.jison} do
   sh "jison aSb.jison aSb.l -o aSb.js"
 end
 
-file "taSb.js" => %w{aSb.jison} do
-  sh "jison aSb.jison --debug 64"
-  sh "mv aSb.js taSb.js"
+desc "Compile with --debug"
+task :debug => %w{aSb.jison} do
+  sh "jison aSb.jison aSb.l -o aSb.js --debug"
 end
 
 desc "Generates out.pdf containing the listings"
@@ -25,6 +25,7 @@ task :print do
   sh "ps2pdf out.ps out.pdf"
 end
 
+desc "remove generated files"
 task :clean do
   sh 'rm -f out.pdf out.ps out.ps~ aSb.js'
 end
