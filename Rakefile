@@ -18,6 +18,13 @@ task :debug => %w{aSb.jison} do
   sh "jison aSb.jison aSb.l -o aSb.js --debug"
 end
 
+desc "Compile with bison -v "
+task :bison => %w{aSb.jison} do
+  sh "bison -v aSb.jison"
+  sh "rm -f aSb.tab.jison"
+  puts "See file aSb.output"
+end
+
 desc "Generates out.pdf containing the listings"
 task :print do
   sh "a2ps --columns=1 -f 8 -R aSb.js  -o out.ps"
