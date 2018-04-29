@@ -45,3 +45,10 @@ end
 task :open do
   sh "open https://github.com/crguezl/jison-aSb"
 end
+
+desc "commit changes and push to origin and crguezl"
+task :push => %w{aSb.jison} do
+  sh "git ci -am changes"
+  sh "git push origin master"
+  sh "git push crguezl master"
+end
