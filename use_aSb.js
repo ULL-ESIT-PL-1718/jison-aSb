@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // standalone Node.js using aSb.jison
 var p = require("./aSb").parser;
 
