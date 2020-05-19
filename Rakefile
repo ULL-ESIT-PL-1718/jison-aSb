@@ -38,7 +38,7 @@ task :clean do
 end
 
 desc "run the example"
-task :run do
+task :run => [ :compile ]do
   sh 'node use_aSb.js'
 end
 
